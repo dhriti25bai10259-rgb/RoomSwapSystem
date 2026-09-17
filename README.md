@@ -121,7 +121,7 @@ Each application run begins with the following records:
 - Processing a request does not update the separate `Room.occupied` flag. Room availability therefore remains the manually stored room status, while student assignments are tracked independently.
 - All records are lost when the program exits.
 
-### Input Behavior
+### ⌨️Input Behavior
 
 - Numeric prompts continue asking until the user enters a valid integer.
 - Empty names, email addresses, room numbers, and room types are rejected.
@@ -129,7 +129,7 @@ Each application run begins with the following records:
 - Room lookup is case-insensitive, so `a-101` and `A-101` refer to the same room.
 - An invalid menu option displays an error and returns to the main menu.
 
-## Architecture
+## 🏗️Architecture
 
 `RoomSwapSystem` is the entry point and coordinates the console menu, input, and managers:
 
@@ -143,7 +143,7 @@ Each application run begins with the following records:
 
 The application uses object references rather than copying students into requests. Consequently, an accepted request updates the same `Student` objects shown by the student menu.
 
-### Data Relationships
+### 🔗Data Relationships
 
 ```text
 RoomSwapSystem
@@ -157,7 +157,7 @@ SwapRequest ── references Student 1 and Student 2
 
 The `Room` object stores its own `occupied` flag, while each `Student` stores a `currentRoom` string. These are separate pieces of state. Accepting a swap changes the students' room strings only; it does not automatically change any `Room.occupied` value.
 
-## Project Structure
+## 📁Project Structure
 
 ```text
 RoomSwapProject/
@@ -176,7 +176,7 @@ RoomSwapProject/
 └── statement.md              # Problem statement and scope
 ```
 
-## Example Workflow
+## 🔄Example Workflow
 
 1. Start the application with `java -cp src RoomSwapSystem`.
 2. Choose `7` to create a room-swap request.
@@ -189,7 +189,7 @@ RoomSwapProject/
 
 Useful negative tests include entering a non-numeric menu value, adding a duplicate student ID, searching for an unknown student, creating a request with the same student twice, rejecting a nonexistent request, and processing an already accepted request.
 
-### Example Console Interaction
+### 💬Example Console Interaction
 
 ```text
 Enter your choice: 6
@@ -210,7 +210,7 @@ Dhriti  -> A-102
 Sofia   -> A-101
 ```
 
-## Testing Checklist
+## 🧪Testing Checklist
 
 Run the program from a fresh start and verify:
 
@@ -227,7 +227,7 @@ Run the program from a fresh start and verify:
 - An accepted or rejected request cannot be processed a second time.
 - Non-numeric input does not terminate the program.
 
-## Limitations
+## ⚠️Limitations
 
 - Data is stored only in `ArrayList` instances and is not persisted.
 - There is no login or distinction between student and administrator sessions.
