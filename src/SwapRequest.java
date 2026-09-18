@@ -17,7 +17,7 @@ public class SwapRequest // initialising variable
     public int getRequestId() {
         return requestId;
     }
-
+   //student function
     public Student getStudent1() {
         return student1;
     }
@@ -25,6 +25,7 @@ public class SwapRequest // initialising variable
     public Student getStudent2() {
         return student2;
     }
+    //another function
 
     public String getStatus() {
         return status;
