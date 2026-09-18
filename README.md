@@ -1,8 +1,8 @@
-# 🏠Roommate / Room Swapping System
+# Roommate / Room Swapping System
 
 A Java command-line application for managing hostel students, rooms, and room-swap requests. Students and rooms are held in memory while the program is running, and a hostel administrator can approve or reject pending requests.
 
-## 📌Overview
+## Overview
 
 Manual room-change requests can be difficult to track and may lead to duplicate processing or incorrect room assignments. This project provides a small, modular workflow for:
 
@@ -14,7 +14,7 @@ Manual room-change requests can be difficult to track and may lead to duplicate 
 
 The application is designed as an educational Java project demonstrating classes, encapsulation, object relationships, collections, validation, loops, conditionals, and exception handling. It has no graphical interface and does not require a database or external service.
 
-## ✨Features
+## Features
 
 - Add students with an ID, name, email, and existing room number.
 - Display all registered students and their current rooms.
@@ -27,7 +27,7 @@ The application is designed as an educational Java project demonstrating classes
 - Reject a pending request without changing room assignments.
 - Reject duplicate student IDs, duplicate room numbers, self-swaps, invalid menu choices, and attempts to process a request twice.
 
-## 📋Requirements
+## Requirements
 
 - Java Development Kit (JDK) 8 or later
 - A terminal or command prompt
@@ -40,7 +40,7 @@ java -version
 javac -version
 ```
 
-## ⚙️Compile and Run
+## Compile and Run
 
 From the project root, compile all source files:
 
@@ -107,7 +107,7 @@ Each application run begins with the following records:
 | 102 | Sofia | sofia@gmail.com | A-102 |
 | 103 | Riya | riya@gmail.com | B-201 |
 
-## 📜Application Rules
+## Application Rules
 
 - Student IDs must be positive integers and unique.
 - Student names and email addresses cannot be empty.
@@ -121,7 +121,7 @@ Each application run begins with the following records:
 - Processing a request does not update the separate `Room.occupied` flag. Room availability therefore remains the manually stored room status, while student assignments are tracked independently.
 - All records are lost when the program exits.
 
-### ⌨️Input Behavior
+### Input Behavior
 
 - Numeric prompts continue asking until the user enters a valid integer.
 - Empty names, email addresses, room numbers, and room types are rejected.
@@ -129,7 +129,7 @@ Each application run begins with the following records:
 - Room lookup is case-insensitive, so `a-101` and `A-101` refer to the same room.
 - An invalid menu option displays an error and returns to the main menu.
 
-## 🏗️Architecture
+## Architecture
 
 `RoomSwapSystem` is the entry point and coordinates the console menu, input, and managers:
 
@@ -143,7 +143,7 @@ Each application run begins with the following records:
 
 The application uses object references rather than copying students into requests. Consequently, an accepted request updates the same `Student` objects shown by the student menu.
 
-### 🔗Data Relationships
+### Data Relationships
 
 ```text
 RoomSwapSystem
@@ -157,7 +157,7 @@ SwapRequest ── references Student 1 and Student 2
 
 The `Room` object stores its own `occupied` flag, while each `Student` stores a `currentRoom` string. These are separate pieces of state. Accepting a swap changes the students' room strings only; it does not automatically change any `Room.occupied` value.
 
-## 📁Project Structure
+## Project Structure
 
 ```text
 RoomSwapProject/
