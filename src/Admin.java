@@ -1,10 +1,11 @@
 public class Admin {
     private String name;
-
+//taking name as input
+//below is the constructor
     public Admin(String name) {
         this.name = name;
     }
-
+//below is the function to return name
     public String getName() {
         return name;
     }
@@ -23,6 +24,7 @@ public class Admin {
         if (action == 2 && swapManager.rejectRequest(requestId)) {
             return "Swap request rejected.";
         }
+    //checking condition
         return "Invalid processing choice. Please choose 1 or 2.";
     }
 }
